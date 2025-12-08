@@ -148,15 +148,15 @@ tags: [JAVA]
 - 적용한 리팩터링 요소:
   - **Request 데이터 처리 개선**
     - 요청으로 들어오는 문자열(String) 값 중 **Enum으로 대체 가능한 항목을 전부 Enum으로 변경해 유지 보수성 높힘** , Converter를 활용하여 **camelCase 입력값을 snake_case로 변환**하도록 구현.
-    - 관련 PR 링크: https://github.com/HR-Bank-Team/sb07-HRBank-team02/pull/109
+    - [관련 PR 링크](https://github.com/HR-Bank-Team/sb07-HRBank-team02/pull/69)
   - **백업 서비스 구조 리팩토링**
     - 기존에 **백업 서비스와 Scheduler가 서로의 메서드에 의존**하며 순환 참조가 발생하던 구조를 개선.
     - 공통으로 필요한 메서드 및 변수를 BackupRegister 레이어로 분리하고, 백업 서비스와 Scheduler는 BackupRegister를 참조하도록 변경하여 순환 참조 방지 및 레이어 간 의존성 명확하게 구현함
-    - 관련 PR 링크: https://github.com/HR-Bank-Team/sb07-HRBank-team02/pull/65
+    - [관련 PR 링크](https://github.com/HR-Bank-Team/sb07-HRBank-team02/pull/65)
 - 성능 개선 작업 및 결과:
   - **BufferedWriter 활용**: 기존 `Files.write` 대신 `BufferedWriter`를 사용하여, 대량 데이터 처리 시 발생하는 **디스크 I/O 병목 현상**을 방지함.
   - **성능 향상**: 만 개 이상의 데이터 처리 시, **약 10배 이상의 속도 개선**을 확인함.
-  - 관련 PR 링크: https://github.com/HR-Bank-Team/sb07-HRBank-team02/pull/57
+  -  [관련 PR 링크](https://github.com/HR-Bank-Team/sb07-HRBank-team02/pull/57)
 - 유지보수성 향상을 위해 고려한 점:
   - **기능별 테스트 코드 작성 후 통과 확인**: 각 기능을 개발할 때 테스트 코드를 먼저 작성하고, 테스트를 통과한 경우에만 PR을 올려 **코드 안정성과 신뢰성**을 확보함.
   - **테스트 실패 시 즉시 버그 수정**: 테스트가 통과하지 못하면 해당 커밋을 **기능적 하자가 있는 상태로 판단**하고, 즉시 원인 분석과 수정 작업을 수행함.
@@ -185,7 +185,7 @@ tags: [JAVA]
 
 # 8. 코드 리뷰
 
-- 관련 Pr 링크: https://github.com/HR-Bank-Team/sb07-HRBank-team02/pull/69
+- [관련 PR 링크](https://github.com/HR-Bank-Team/sb07-HRBank-team02/pull/69)
 
 - **상황**: 프로젝트 환경에서 OSIV(False) 설정으로 인해, 조회 메서드에 트랜잭션 처리가 없으면 에러가 발생할 수 있고, 트랜잭션 처리가 없는 조회 메서드를 코드 리뷰 중 발견하고 피드백함.
 - **결과:** 해당 PR 작성한 팀원이 해당 메서드에 `@Transactional(readOnly = true)`를 적용하도록 PR을 수정하여, 영속성 문제 없이 안전하게 동작하도록 개선함.
