@@ -1,13 +1,13 @@
 ---
 date: 2025-12-08
 layout: post
-title: 스프린트 프로젝트 1
+title: 자바 프로젝트 HR-BANK 
 categories: [자바 프로젝트]
 tags: [JAVA]
 
 ---
+### 황준영 개인 개발 리포트
 
-# 포스트 전용 템플릿입니다
 ## 1. 프로젝트 개요
 
 - 프로젝트 목적: HR-BANK 인적 관리 시스템 서버 , DataBase 개발 및 배포
